@@ -1,0 +1,92 @@
+Assignment1
+
+sudo apt-get update
+sudo apt-get install docker.io -y
+sudo docker pull ubuntu:18.04
+sudo docker run -it -d or -itd -p 80:80 ubuntu:18.04
+sudo docker ps -a
+sudo docker exec -it <container-id> bash
+apt-get update
+apt-get install apache2 -y
+service apache2 status
+service apache2 start
+exit
+----------------------------------------------------------------
+Assignment2
+sudo docker ps -a
+sudo docker commit <container-id> hrithik
+sudo docker images
+sudo docker run -itd -p 81:80 --name c1 hrithik
+sudo docker ps -a
+sudo docker exec -it c1/container-id bash
+service apache2 status
+service apache2 start
+exit
+------------------------------------------------------------
+assignment3
+sudo docker images
+sudo docker tag hrithik ritikdevoper/app1:v1
+sudo docker login
+username:
+password:
+sudo docker push ritikdevoper123/app1:v1
+
+
+
+create a new ec2 instance
+sudo apt-get update
+sudo apt-get install docker.io -y
+sudo docker login
+username=
+password=
+sudo docker pull ritikdevoper123/app1:v1
+sudo docker images
+sudo docker run -itd -p 80:80 ritikdevoper123/app1:v1
+sudo docker ps -a
+sudo docker exec -it <container-id> bash
+apt-get update
+apt-get install apache2 
+service apache2 status
+service apache2 start
+exit
+-----------------------------------------------------------------
+
+
+assignment4
+
+mkdir demo
+cd demo
+sudo nano dockerfile
+FROM ubuntu:18.04
+RUN apt-get update
+RUN DEBIAN_FRONTEND="noninteractive" apt-get install tzdata -y
+RUN apt-get install apache2 -y
+ENTRYPOINT apachectl -D FOREGROUND
+
+
+sudo docker build . -t c2
+sudo docker images
+sudo docker run -itd -p 91:80 c2
+sudo docker ps -a
+----------------------------------------------------------------------------
+assignment5
+
+mkdir assign5
+cd assign5
+sudo nano dockerfile
+FROM ubuntu:18.04
+RUN apt-get update
+RUN DEBIAN_FRONTEND="noninteractive" apt-get install tzdata -y
+RUN apt-get install apache2 -y
+COPY index.html /var/www/html/
+ENTRYPOINT apachectl -D FOREGROUND
+
+
+sudo nano index.html
+(hello apache2)
+
+sudo docker build . -t c3
+sudo docker images
+sudo docker run -itd -p 71:80 c3
+-----------------------------------------------------------------------------
+
